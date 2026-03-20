@@ -74,7 +74,7 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
             <strong>{selectedDate.getDate()} {months[selectedDate.getMonth()]}</strong> в <strong>{selectedTime}</strong>
           </p>
         )}
-        <div className="p-4 rounded-2xl bg-blue-50 border border-blue-100 text-sm text-blue-700 mb-8">
+        <div className="p-4 rounded-2xl bg-orange-50 border border-orange-100 text-sm text-orange-700 mb-8">
           <Icon name="Bell" size={16} className="inline mr-2" />
           Мы отправим вам SMS-напоминание за сутки до визита
         </div>
@@ -109,7 +109,7 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
             <div className={`text-xs font-medium hidden sm:block ${step >= s ? 'text-gray-700' : 'text-gray-400'}`}>
               {s === 1 ? 'Услуга' : s === 2 ? 'Дата и время' : 'Контакты'}
             </div>
-            {s < 3 && <div className={`flex-1 h-0.5 rounded ${step > s ? 'bg-blue-500' : 'bg-gray-200'}`} />}
+            {s < 3 && <div className={`flex-1 h-0.5 rounded ${step > s ? 'bg-orange-500' : 'bg-gray-200'}`} />}
           </div>
         ))}
       </div>
@@ -129,13 +129,13 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
                   onClick={() => setSelectedService(s)}
                   className={`w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all ${
                     selectedService === s
-                      ? 'border-blue-500 bg-blue-50 text-blue-700'
-                      : 'border-gray-100 text-gray-700 hover:border-blue-200 hover:bg-blue-50/50'
+                      ? 'border-orange-500 bg-orange-50 text-orange-700'
+                      : 'border-gray-100 text-gray-700 hover:border-orange-200 hover:bg-orange-50/50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     {s}
-                    {selectedService === s && <Icon name="CheckCircle" size={18} className="text-blue-500" />}
+                    {selectedService === s && <Icon name="CheckCircle" size={18} className="text-orange-500" />}
                   </div>
                 </button>
               ))}
@@ -147,7 +147,7 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
         {step === 2 && (
           <div className="animate-fade-in">
             <h2 className="font-semibold text-xl text-gray-800 mb-6 flex items-center gap-2">
-              <Icon name="Calendar" size={20} className="text-blue-500" />
+              <Icon name="Calendar" size={20} className="text-orange-500" />
               Выберите дату и время
             </h2>
 
@@ -160,8 +160,8 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
                     onClick={() => setSelectedDate(d)}
                     className={`py-3 rounded-xl text-center border-2 transition-all ${
                       selectedDate?.getDate() === d.getDate()
-                        ? 'border-blue-500 grad-primary text-white'
-                        : 'border-gray-100 hover:border-blue-200 text-gray-700'
+                        ? 'border-orange-500 grad-primary text-white'
+                        : 'border-gray-100 hover:border-orange-200 text-gray-700'
                     }`}
                   >
                     <div className="text-xs opacity-70">{weekDays[d.getDay()]}</div>
@@ -182,8 +182,8 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
                       onClick={() => setSelectedTime(t)}
                       className={`py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
                         selectedTime === t
-                          ? 'border-blue-500 grad-primary text-white'
-                          : 'border-gray-100 hover:border-blue-200 text-gray-700'
+                          ? 'border-orange-500 grad-primary text-white'
+                          : 'border-gray-100 hover:border-orange-200 text-gray-700'
                       }`}
                     >
                       {t}
@@ -199,13 +199,13 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
         {step === 3 && (
           <div className="animate-fade-in">
             <h2 className="font-semibold text-xl text-gray-800 mb-6 flex items-center gap-2">
-              <Icon name="User" size={20} className="text-blue-500" />
+              <Icon name="User" size={20} className="text-orange-500" />
               Ваши данные
             </h2>
 
             {/* Summary */}
-            <div className="p-4 rounded-2xl bg-blue-50 border border-blue-100 mb-6">
-              <div className="text-xs font-semibold text-blue-500 uppercase tracking-wide mb-2">Запись</div>
+            <div className="p-4 rounded-2xl bg-orange-50 border border-orange-100 mb-6">
+              <div className="text-xs font-semibold text-orange-500 uppercase tracking-wide mb-2">Запись</div>
               <div className="font-semibold text-gray-800">{selectedService}</div>
               {selectedDate && <div className="text-sm text-gray-500 mt-1">{selectedDate.getDate()} {months[selectedDate.getMonth()]} в {selectedTime}</div>}
             </div>
@@ -218,7 +218,7 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Александр Петров"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-gray-800 text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 text-sm"
                 />
               </div>
               <div>
@@ -228,7 +228,7 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
                   placeholder="+7 900 000-00-00"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-gray-800 text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 text-sm"
                 />
               </div>
               <div>
@@ -238,11 +238,11 @@ export default function BookingPage({ user, onNavigate }: BookingPageProps) {
                   onChange={e => setComment(e.target.value)}
                   placeholder="Марка и модель автомобиля, особые пожелания..."
                   rows={3}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-gray-800 text-sm resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 text-sm resize-none"
                 />
               </div>
               <div className="p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-start gap-2">
-                <Icon name="Bell" size={16} className="text-blue-500 mt-0.5 flex-shrink-0" />
+                <Icon name="Bell" size={16} className="text-orange-500 mt-0.5 flex-shrink-0" />
                 <p className="text-xs text-gray-500">Мы отправим SMS-подтверждение и напомним о визите за день.</p>
               </div>
             </div>

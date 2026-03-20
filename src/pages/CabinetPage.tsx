@@ -73,7 +73,7 @@ const UPCOMING = {
 
 const statusMap: Record<string, { label: string; color: string }> = {
   completed: { label: 'Выполнено', color: 'bg-green-100 text-green-700' },
-  scheduled: { label: 'Запланировано', color: 'bg-blue-100 text-blue-700' },
+  scheduled: { label: 'Запланировано', color: 'bg-orange-100 text-orange-700' },
   in_progress: { label: 'В работе', color: 'bg-orange-100 text-orange-700' },
 };
 
@@ -98,7 +98,7 @@ export default function CabinetPage({ user, onNavigate }: CabinetPageProps) {
       </div>
 
       {/* Upcoming visit */}
-      <div className="mb-6 p-5 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 text-white relative overflow-hidden">
+      <div className="mb-6 p-5 rounded-2xl grad-primary text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/4" />
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -106,14 +106,14 @@ export default function CabinetPage({ user, onNavigate }: CabinetPageProps) {
               <Icon name="CalendarCheck" size={24} />
             </div>
             <div>
-              <div className="text-blue-100 text-sm font-medium">Ближайший визит</div>
+              <div className="text-orange-100 text-sm font-medium">Ближайший визит</div>
               <div className="font-semibold text-lg">{UPCOMING.service}</div>
-              <div className="text-blue-200 text-sm">{UPCOMING.date} в {UPCOMING.time} · {UPCOMING.master}</div>
+              <div className="text-orange-200 text-sm">{UPCOMING.date} в {UPCOMING.time} · {UPCOMING.master}</div>
             </div>
           </div>
           <div className="hidden md:flex flex-col items-end gap-2">
             <span className="px-3 py-1 rounded-full bg-white/20 text-sm font-medium">{UPCOMING.id}</span>
-            <span className="text-blue-200 text-xs">Запись подтверждена</span>
+            <span className="text-orange-200 text-xs">Запись подтверждена</span>
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@ export default function CabinetPage({ user, onNavigate }: CabinetPageProps) {
             key={t.id}
             onClick={() => setActiveTab(t.id as 'car' | 'history' | 'notifications')}
             className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-all ${
-              activeTab === t.id ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+              activeTab === t.id ? 'bg-white text-orange-500 shadow-sm' : 'text-gray-500 hover:text-gray-700'
             }`}
           >
             <Icon name={t.icon as 'Car'} size={16} />
@@ -188,7 +188,7 @@ export default function CabinetPage({ user, onNavigate }: CabinetPageProps) {
               <div className="space-y-1">
                 {MOCK_HISTORY[0].services.map((s, i) => (
                   <div key={i} className="text-sm text-gray-700 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" />
                     {s}
                   </div>
                 ))}
@@ -236,7 +236,7 @@ export default function CabinetPage({ user, onNavigate }: CabinetPageProps) {
       {activeTab === 'notifications' && (
         <div className="space-y-4 animate-fade-in">
           {[
-            { icon: 'Bell', color: 'text-blue-500 bg-blue-50', title: 'Напоминание о ТО', desc: 'Плановое ТО через 1600 км. Рекомендуем записаться заранее.', time: '2 дня назад' },
+            { icon: 'Bell', color: 'text-orange-500 bg-orange-50', title: 'Напоминание о ТО', desc: 'Плановое ТО через 1600 км. Рекомендуем записаться заранее.', time: '2 дня назад' },
             { icon: 'CheckCircle', color: 'text-green-500 bg-green-50', title: 'Автомобиль готов', desc: 'Ваш Toyota Camry готов к выдаче. Заказ-наряд ЗН-0041 выполнен.', time: '5 дней назад' },
             { icon: 'Wrench', color: 'text-orange-500 bg-orange-50', title: 'Начало работ', desc: 'Мастер Иванов С.А. приступил к обслуживанию вашего автомобиля.', time: '5 дней назад' },
             { icon: 'CalendarCheck', color: 'text-purple-500 bg-purple-50', title: 'Запись подтверждена', desc: 'Запись на 25.03.2024 в 10:30 подтверждена. Ждём вас!', time: '1 неделю назад' },

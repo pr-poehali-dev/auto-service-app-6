@@ -23,7 +23,7 @@ const advantages = [
 ];
 
 const services = [
-  { icon: 'Droplets', name: 'Замена масла', price: 'от 800 ₽', color: 'bg-blue-50 text-blue-600' },
+  { icon: 'Droplets', name: 'Замена масла', price: 'от 800 ₽', color: 'bg-orange-50 text-orange-600' },
   { icon: 'Disc', name: 'Тормозная система', price: 'от 2 500 ₽', color: 'bg-orange-50 text-orange-600' },
   { icon: 'Zap', name: 'Диагностика', price: 'от 1 000 ₽', color: 'bg-green-50 text-green-600' },
   { icon: 'Wind', name: 'Кондиционер', price: 'от 1 500 ₽', color: 'bg-purple-50 text-purple-600' },
@@ -40,16 +40,16 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(${HERO_IMG})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D1117] via-[#0D1117]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#141414] via-[#141414]/80 to-transparent" />
 
         {/* Decorative circles */}
-        <div className="absolute top-20 right-20 w-80 h-80 rounded-full bg-blue-600/10 blur-3xl" />
+        <div className="absolute top-20 right-20 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl" />
         <div className="absolute bottom-20 right-40 w-60 h-60 rounded-full bg-orange-500/10 blur-3xl" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-300 text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-300 text-sm font-medium mb-6">
+              <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
               г. Новосибирск — ул. Плотинная, 1Б
             </div>
 
@@ -96,7 +96,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       {/* Quick Services */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-4">Наши услуги</div>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 text-sm font-semibold mb-4">Наши услуги</div>
           <h2 className="font-display text-4xl font-bold text-gray-900 mb-4">ПОПУЛЯРНЫЕ РАБОТЫ</h2>
           <p className="text-gray-500 max-w-xl mx-auto">Полный спектр технического обслуживания и ремонта любых автомобилей</p>
         </div>
@@ -108,7 +108,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 <Icon name={s.icon as 'Droplets'} size={22} />
               </div>
               <div className="font-semibold text-gray-800 mb-1">{s.name}</div>
-              <div className="text-sm font-bold text-blue-600">{s.price}</div>
+              <div className="text-sm font-bold text-orange-500">{s.price}</div>
             </div>
           ))}
         </div>
@@ -116,7 +116,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <div className="text-center">
           <button
             onClick={() => onNavigate('services')}
-            className="px-8 py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition-all"
+            className="px-8 py-3 rounded-xl border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all"
           >
             Все услуги и цены
           </button>
@@ -124,16 +124,16 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Advantages */}
-      <section className="bg-[#0D1117] py-20">
+      <section className="bg-[#141414] py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-blue-900/40 text-blue-400 text-sm font-semibold mb-4">Почему мы</div>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-orange-500/15 text-orange-400 text-sm font-semibold mb-4">Почему мы</div>
             <h2 className="font-display text-4xl font-bold text-white mb-4">НАШИ ПРЕИМУЩЕСТВА</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((a, i) => (
-              <div key={i} className="rounded-2xl p-6 bg-white/5 border border-white/10 hover:border-blue-500/40 transition-all card-hover">
+              <div key={i} className="rounded-2xl p-6 bg-white/5 border border-white/10 hover:border-orange-500/40 transition-all card-hover">
                 <div className="w-12 h-12 rounded-xl grad-primary flex items-center justify-center mb-4">
                   <Icon name={a.icon as 'ShieldCheck'} size={22} className="text-white" />
                 </div>
@@ -152,13 +152,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-black/10 translate-y-1/2 -translate-x-1/3" />
           <div className="relative z-10">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">ЗАПИШИТЕСЬ СЕЙЧАС</h2>
-            <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-orange-100 text-lg mb-8 max-w-xl mx-auto">
               Онлайн-запись за 2 минуты. Подберём удобное время и напомним о визите.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => onNavigate('booking')}
-                className="px-10 py-4 rounded-2xl bg-white text-blue-600 font-bold text-lg hover:bg-blue-50 transition-all shadow-xl"
+                className="px-10 py-4 rounded-2xl bg-white text-orange-600 font-bold text-lg hover:bg-orange-50 transition-all shadow-xl"
               >
                 Записаться онлайн
               </button>

@@ -27,7 +27,7 @@ const INITIAL_ORDERS: Order[] = [
 ];
 
 const statusConfig: Record<OrderStatus, { label: string; color: string; dotColor: string }> = {
-  scheduled: { label: 'Запланировано', color: 'bg-blue-50 text-blue-700', dotColor: 'bg-blue-500' },
+  scheduled: { label: 'Запланировано', color: 'bg-orange-50 text-orange-700', dotColor: 'bg-orange-500' },
   in_progress: { label: 'В работе', color: 'bg-orange-50 text-orange-700', dotColor: 'bg-orange-500' },
   completed: { label: 'Выполнено', color: 'bg-green-50 text-green-700', dotColor: 'bg-green-500' },
   cancelled: { label: 'Отменено', color: 'bg-red-50 text-red-600', dotColor: 'bg-red-400' },
@@ -105,7 +105,7 @@ export default function AdminPage() {
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
         {[
           { label: 'Всего', value: stats.total, icon: 'ClipboardList', color: 'text-gray-600 bg-gray-50' },
-          { label: 'Запланировано', value: stats.scheduled, icon: 'Calendar', color: 'text-blue-600 bg-blue-50' },
+          { label: 'Запланировано', value: stats.scheduled, icon: 'Calendar', color: 'text-orange-500 bg-orange-50' },
           { label: 'В работе', value: stats.in_progress, icon: 'Wrench', color: 'text-orange-600 bg-orange-50' },
           { label: 'Выполнено', value: stats.completed, icon: 'CheckCircle', color: 'text-green-600 bg-green-50' },
           { label: 'Выручка', value: `${stats.revenue.toLocaleString()} ₽`, icon: 'TrendingUp', color: 'text-purple-600 bg-purple-50' },
@@ -130,7 +130,7 @@ export default function AdminPage() {
             key={t.id}
             onClick={() => setActiveTab(t.id as 'orders' | 'create')}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
-              activeTab === t.id ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+              activeTab === t.id ? 'bg-white text-orange-500 shadow-sm' : 'text-gray-500 hover:text-gray-700'
             }`}
           >
             <Icon name={t.icon as 'ClipboardList'} size={16} />
@@ -151,7 +151,7 @@ export default function AdminPage() {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 placeholder="Поиск по клиенту, номеру или телефону..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-sm"
               />
             </div>
             <div className="flex gap-2 flex-wrap">
@@ -190,7 +190,7 @@ export default function AdminPage() {
                             type={field.type}
                             value={String(editData[field.key as keyof Order] ?? order[field.key as keyof Order])}
                             onChange={e => setEditData(prev => ({ ...prev, [field.key]: field.type === 'number' ? Number(e.target.value) : e.target.value }))}
-                            className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                            className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-orange-500 outline-none text-sm"
                           />
                         </div>
                       ))}
@@ -199,7 +199,7 @@ export default function AdminPage() {
                         <select
                           value={String(editData.status ?? order.status)}
                           onChange={e => setEditData(prev => ({ ...prev, status: e.target.value as OrderStatus }))}
-                          className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                          className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-orange-500 outline-none text-sm"
                         >
                           {Object.entries(statusConfig).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
                         </select>
@@ -209,7 +209,7 @@ export default function AdminPage() {
                         <select
                           value={String(editData.master ?? order.master)}
                           onChange={e => setEditData(prev => ({ ...prev, master: e.target.value }))}
-                          className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                          className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:border-orange-500 outline-none text-sm"
                         >
                           {masters.map(m => <option key={m}>{m}</option>)}
                         </select>
@@ -231,7 +231,7 @@ export default function AdminPage() {
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <button onClick={() => { setEditingId(order.id); }} className="p-2 rounded-lg hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-colors">
+                        <button onClick={() => { setEditingId(order.id); }} className="p-2 rounded-lg hover:bg-orange-50 text-gray-400 hover:text-orange-500 transition-colors">
                           <Icon name="Pencil" size={15} />
                         </button>
                         <button onClick={() => deleteOrder(order.id)} className="p-2 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors">
@@ -291,7 +291,7 @@ export default function AdminPage() {
       {activeTab === 'create' && (
         <div className="animate-fade-in bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
           <h2 className="font-semibold text-xl text-gray-800 mb-6 flex items-center gap-2">
-            <Icon name="FilePlus" size={20} className="text-blue-500" />
+            <Icon name="FilePlus" size={20} className="text-orange-500" />
             Новый заказ-наряд
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -310,7 +310,7 @@ export default function AdminPage() {
                   value={String(newOrder[field.key as keyof Order] ?? '')}
                   onChange={e => setNewOrder(prev => ({ ...prev, [field.key]: field.type === 'number' ? Number(e.target.value) : e.target.value }))}
                   placeholder={field.placeholder}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-sm"
                 />
               </div>
             ))}
@@ -319,7 +319,7 @@ export default function AdminPage() {
               <select
                 value={newOrder.service}
                 onChange={e => setNewOrder(prev => ({ ...prev, service: e.target.value }))}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 outline-none text-sm"
               >
                 <option value="">Выберите услугу</option>
                 {servicesList.map(s => <option key={s}>{s}</option>)}
@@ -330,7 +330,7 @@ export default function AdminPage() {
               <select
                 value={newOrder.master}
                 onChange={e => setNewOrder(prev => ({ ...prev, master: e.target.value }))}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 outline-none text-sm"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 outline-none text-sm"
               >
                 {masters.map(m => <option key={m}>{m}</option>)}
               </select>
@@ -342,7 +342,7 @@ export default function AdminPage() {
                 onChange={e => setNewOrder(prev => ({ ...prev, comment: e.target.value }))}
                 placeholder="Особые пожелания, замечания..."
                 rows={3}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-sm resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-sm resize-none"
               />
             </div>
           </div>

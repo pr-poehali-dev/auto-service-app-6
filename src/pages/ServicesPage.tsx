@@ -39,7 +39,7 @@ const packages = [
     name: 'Стандарт',
     icon: 'Zap',
     price: '7 500 ₽',
-    color: 'border-blue-500 bg-blue-600',
+    color: 'border-orange-500 bg-[#141414]',
     badge: 'Популярный',
     items: ['Всё из Базового', 'Компьютерная диагностика', 'Замена воздушного фильтра', 'Проверка аккумулятора', 'Проверка тормозных колодок', 'Регулировка клапанов'],
   },
@@ -61,7 +61,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
   return (
     <div className="animate-fade-in">
       {/* Hero */}
-      <div className="bg-gradient-to-r from-[#0D1117] to-[#0D2447] py-14">
+      <div className="bg-gradient-to-r from-[#141414] to-[#1A1A1A] py-14">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-5xl font-bold text-white mb-4">УСЛУГИ И ЦЕНЫ</h1>
           <p className="text-gray-400 text-lg max-w-xl mx-auto">Профессиональный ремонт и обслуживание. Цены фиксированные — без сюрпризов.</p>
@@ -72,17 +72,17 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
         {/* Packages */}
         <div className="mb-16">
           <div className="text-center mb-10">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 text-sm font-semibold mb-4">Пакеты обслуживания</div>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-600 text-sm font-semibold mb-4">Пакеты обслуживания</div>
             <h2 className="font-display text-3xl font-bold text-gray-900">ВЫБЕРИТЕ ПАКЕТ ТО</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {packages.map((pkg) => {
-              const isPrimary = pkg.color.includes('bg-blue-600');
+              const isPrimary = pkg.color.includes('#141414');
               const isOrange = pkg.badge === 'Полное ТО';
               return (
                 <div key={pkg.name} className={`rounded-3xl border-2 ${pkg.color} p-8 relative overflow-hidden card-hover`}>
                   {pkg.badge && (
-                    <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold ${isPrimary ? 'bg-white/20 text-white' : isOrange ? 'bg-orange-500 text-white' : 'bg-blue-50 text-blue-600'}`}>
+                    <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold ${isPrimary ? 'bg-white/20 text-white' : isOrange ? 'bg-orange-500 text-white' : 'bg-orange-50 text-orange-500'}`}>
                       {pkg.badge}
                     </div>
                   )}
@@ -90,11 +90,11 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
                     <Icon name={pkg.icon as 'Star'} size={22} className={isPrimary ? 'text-white' : 'text-white'} />
                   </div>
                   <div className={`font-display text-2xl font-bold mb-2 ${isPrimary ? 'text-white' : 'text-gray-900'}`}>{pkg.name}</div>
-                  <div className={`text-3xl font-bold mb-6 ${isPrimary ? 'text-white' : 'text-blue-600'}`}>{pkg.price}</div>
+                  <div className={`text-3xl font-bold mb-6 ${isPrimary ? 'text-white' : 'text-orange-500'}`}>{pkg.price}</div>
                   <ul className="space-y-2.5 mb-8">
                     {pkg.items.map((item, i) => (
-                      <li key={i} className={`flex items-center gap-2 text-sm ${isPrimary ? 'text-blue-100' : 'text-gray-600'}`}>
-                        <Icon name="Check" size={16} className={isPrimary ? 'text-blue-200' : 'text-green-500'} />
+                      <li key={i} className={`flex items-center gap-2 text-sm ${isPrimary ? 'text-orange-100' : 'text-gray-600'}`}>
+                        <Icon name="Check" size={16} className={isPrimary ? 'text-orange-200' : 'text-green-500'} />
                         {item}
                       </li>
                     ))}
@@ -103,7 +103,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
                     onClick={() => onNavigate('booking')}
                     className={`w-full py-3 rounded-xl font-semibold text-sm transition-all ${
                       isPrimary
-                        ? 'bg-white text-blue-600 hover:bg-blue-50'
+                        ? 'bg-white text-[#141414] hover:bg-orange-50'
                         : isOrange
                         ? 'grad-accent text-white btn-orange-glow'
                         : 'grad-primary text-white btn-glow'
@@ -154,7 +154,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
                   <div className="text-sm text-gray-500 mb-3">{s.desc}</div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4 text-sm">
-                      <span className="font-bold text-blue-600">{s.price}</span>
+                      <span className="font-bold text-orange-500">{s.price}</span>
                       <span className="text-gray-400 flex items-center gap-1">
                         <Icon name="Clock" size={13} />
                         {s.duration}
@@ -162,7 +162,7 @@ export default function ServicesPage({ onNavigate }: ServicesPageProps) {
                     </div>
                     <button
                       onClick={() => onNavigate('booking')}
-                      className="px-4 py-1.5 rounded-xl bg-blue-50 text-blue-600 text-xs font-semibold hover:bg-blue-100 transition-colors"
+                      className="px-4 py-1.5 rounded-xl bg-orange-50 text-orange-500 text-xs font-semibold hover:bg-orange-100 transition-colors"
                     >
                       Записаться
                     </button>

@@ -14,7 +14,7 @@ export default function ContactsPage() {
   return (
     <div className="animate-fade-in">
       {/* Hero */}
-      <div className="bg-gradient-to-r from-[#0D1117] to-[#0D2447] py-14">
+      <div className="bg-gradient-to-r from-[#141414] to-[#1A1A1A] py-14">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-5xl font-bold text-white mb-4">КОНТАКТЫ</h1>
           <p className="text-gray-400 text-lg">Мы находимся в Новосибирске и готовы принять вас!</p>
@@ -27,8 +27,8 @@ export default function ContactsPage() {
           <div className="space-y-4">
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 card-hover">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
-                  <Icon name="MapPin" size={22} className="text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center">
+                  <Icon name="MapPin" size={22} className="text-orange-500" />
                 </div>
                 <div className="font-semibold text-lg text-gray-800">Адрес</div>
               </div>
@@ -84,7 +84,7 @@ export default function ContactsPage() {
           {/* Map & Info */}
           <div className="space-y-4">
             {/* Map placeholder */}
-            <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-72 bg-gradient-to-br from-blue-50 to-indigo-50 flex flex-col items-center justify-center relative">
+            <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-72 bg-gradient-to-br from-orange-50 to-gray-50 flex flex-col items-center justify-center relative">
               <div className="absolute inset-0 stripe-bg" />
               <div className="relative z-10 text-center">
                 <div className="w-16 h-16 rounded-full grad-primary flex items-center justify-center mx-auto mb-3 shadow-xl">
@@ -107,7 +107,7 @@ export default function ContactsPage() {
             {/* How to find */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <div className="font-semibold text-lg text-gray-800 mb-4 flex items-center gap-2">
-                <Icon name="Navigation" size={18} className="text-blue-500" />
+                <Icon name="Navigation" size={18} className="text-orange-500" />
                 Как найти нас
               </div>
               <div className="space-y-3">
@@ -117,8 +117,8 @@ export default function ContactsPage() {
                   { icon: 'ParkingCircle', text: 'Парковка: бесплатная стоянка для клиентов перед сервисом' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                      <Icon name={item.icon as 'Car'} size={15} className="text-blue-500" />
+                    <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
+                      <Icon name={item.icon as 'Car'} size={15} className="text-orange-500" />
                     </div>
                     <span className="text-sm text-gray-600 leading-relaxed">{item.text}</span>
                   </div>
@@ -128,7 +128,7 @@ export default function ContactsPage() {
 
             {/* Quick actions */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-5 text-white text-center card-hover cursor-pointer">
+              <div className="bg-gradient-to-br from-[#141414] to-[#1A1A1A] rounded-2xl p-5 text-white text-center card-hover cursor-pointer">
                 <Icon name="CalendarCheck" size={28} className="mx-auto mb-2" />
                 <div className="font-semibold text-sm">Онлайн запись</div>
               </div>

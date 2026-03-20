@@ -63,7 +63,7 @@ export default function AuthPage({ onLogin, onNavigate }: AuthPageProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 bg-gradient-to-br from-blue-50 via-white to-orange-50">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 bg-gradient-to-br from-gray-100 via-white to-orange-50">
       <div className="w-full max-w-md animate-slide-up">
         {/* Logo */}
         <div className="text-center mb-8">
@@ -81,13 +81,13 @@ export default function AuthPage({ onLogin, onNavigate }: AuthPageProps) {
           <div className="grid grid-cols-2 border-b border-gray-100">
             <button
               onClick={() => { setMode('login'); setError(''); }}
-              className={`py-4 font-semibold text-sm transition-all ${mode === 'login' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`py-4 font-semibold text-sm transition-all ${mode === 'login' ? 'text-orange-500 border-b-2 border-orange-500' : 'text-gray-400 hover:text-gray-600'}`}
             >
               Войти
             </button>
             <button
               onClick={() => { setMode('register'); setError(''); }}
-              className={`py-4 font-semibold text-sm transition-all ${mode === 'register' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`py-4 font-semibold text-sm transition-all ${mode === 'register' ? 'text-orange-500 border-b-2 border-orange-500' : 'text-gray-400 hover:text-gray-600'}`}
             >
               Регистрация
             </button>
@@ -118,7 +118,7 @@ export default function AuthPage({ onLogin, onNavigate }: AuthPageProps) {
                       value={name}
                       onChange={e => setName(e.target.value)}
                       placeholder="Александр Петров"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-gray-800 text-sm transition-all"
+                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 text-sm transition-all"
                     />
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function AuthPage({ onLogin, onNavigate }: AuthPageProps) {
                     value={phone}
                     onChange={handlePhoneChange}
                     placeholder="+7 900 000-00-00"
-                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-gray-800 text-sm transition-all"
+                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 text-sm transition-all"
                   />
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function AuthPage({ onLogin, onNavigate }: AuthPageProps) {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     placeholder={mode === 'register' ? 'Минимум 6 символов' : 'Введите пароль'}
-                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-gray-800 text-sm transition-all"
+                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 text-sm transition-all"
                     onKeyDown={e => e.key === 'Enter' && mode === 'login' && handleLogin()}
                   />
                 </div>
@@ -165,7 +165,7 @@ export default function AuthPage({ onLogin, onNavigate }: AuthPageProps) {
                       value={confirmPassword}
                       onChange={e => setConfirmPassword(e.target.value)}
                       placeholder="Повторите пароль"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-gray-800 text-sm transition-all"
+                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 text-sm transition-all"
                       onKeyDown={e => e.key === 'Enter' && handleRegister()}
                     />
                   </div>
@@ -181,8 +181,8 @@ export default function AuthPage({ onLogin, onNavigate }: AuthPageProps) {
             </div>
 
             {mode === 'login' && (
-              <div className="mt-6 p-4 rounded-xl bg-blue-50 border border-blue-100">
-                <div className="text-xs font-semibold text-blue-600 mb-2">Тестовые аккаунты:</div>
+              <div className="mt-6 p-4 rounded-xl bg-orange-50 border border-orange-100">
+                <div className="text-xs font-semibold text-orange-600 mb-2">Тестовые аккаунты:</div>
                 <div className="text-xs text-gray-600 space-y-1">
                   <div>👤 Клиент: <span className="font-mono">+7 900 123-45-67</span> / <span className="font-mono">client123</span></div>
                   <div>🛡 Админ: <span className="font-mono">+7 913 203-49-81</span> / <span className="font-mono">admin2024</span></div>
