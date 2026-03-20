@@ -1,14 +1,66 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Layout from '@/components/Layout';
+import HomePage from '@/pages/HomePage';
+import AuthPage from '@/pages/AuthPage';
+import CabinetPage from '@/pages/CabinetPage';
+import ServicesPage from '@/pages/ServicesPage';
+import BookingPage from '@/pages/BookingPage';
+import ContactsPage from '@/pages/ContactsPage';
+import AdminPage from '@/pages/AdminPage';
 
-const Index = () => {
+interface User {
+  name: string;
+  role: string;
+  phone: string;
+}
+
+export default function Index() {
+  const [currentPage, setCurrentPage] = useState('home');
+  const [user, setUser] = useState<User | null>(null);
+
+  const handleNavigate = (page: string) => {
+    if ((page === 'cabinet' || page === 'admin') && !user) {
+      setCurrentPage('auth');
+      return;
+    }
+    if (page === 'admin' && user?.role !== 'admin') {
+      setCurrentPage('cabinet');
+      return;
+    }
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLogin = (u: User) => {
+    setUser(u);
+    setCurrentPage(u.role === 'admin' ? 'admin' : 'cabinet');
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setCurrentPage('home');
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home': return <HomePage onNavigate={handleNavigate} />;
+      case 'auth': return <AuthPage onLogin={handleLogin} onNavigate={handleNavigate} />;
+      case 'cabinet': return user ? <CabinetPage user={user} onNavigate={handleNavigate} /> : <AuthPage onLogin={handleLogin} onNavigate={handleNavigate} />;
+      case 'services': return <ServicesPage onNavigate={handleNavigate} />;
+      case 'booking': return <BookingPage user={user} onNavigate={handleNavigate} />;
+      case 'contacts': return <ContactsPage />;
+      case 'admin': return user?.role === 'admin' ? <AdminPage /> : <AuthPage onLogin={handleLogin} onNavigate={handleNavigate} />;
+      default: return <HomePage onNavigate={handleNavigate} />;
+    }
+  };
+
+  if (currentPage === 'auth') {
+    return <AuthPage onLogin={handleLogin} onNavigate={handleNavigate} />;
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
-    </div>
+    <Layout currentPage={currentPage} onNavigate={handleNavigate} user={user} onLogout={handleLogout}>
+      {renderPage()}
+    </Layout>
   );
-};
-
-export default Index;
+}
